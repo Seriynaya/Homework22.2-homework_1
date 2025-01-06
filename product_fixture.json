@@ -1,0 +1,67 @@
+[
+{
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+        "name": "ноутбук",
+        "description": "игровой",
+        "image": "",
+        "category": null,
+        "price": null,
+        "created_at": null,
+        "updated_at": "2024-10-30T15:52:44.418Z"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+        "name": "компьютер стац",
+        "description": "стационарный",
+        "image": "",
+        "category": 1,
+        "price": null,
+        "created_at": null,
+        "updated_at": "2024-10-30T15:59:07.687Z"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+        "name": "компьютер",
+        "description": "игровой",
+        "image": "",
+        "category": 1,
+        "price": null,
+        "created_at": null,
+        "updated_at": "2024-10-30T15:59:53.438Z"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 4,
+    "fields": {
+        "name": "планшет",
+        "description": "айпад",
+        "image": "",
+        "category": 2,
+        "price": null,
+        "created_at": null,
+        "updated_at": "2024-10-30T16:03:22.519Z"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 5,
+    "fields": {
+        "name": "Смарт-часы",
+        "description": "часы",
+        "image": "",
+        "category": 3,
+        "price": null,
+        "created_at": null,
+        "updated_at": "2024-10-30T16:28:37.096Z"
+    }
+}
+]
