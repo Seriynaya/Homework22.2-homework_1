@@ -1,5 +1,5 @@
 from django.views.generic import ListView, DetailView
-from django.views.generic.edit import UpdateView
+from django.views.generic.edit import UpdateView, CreateView, DeleteView
 from django.urls import reverse_lazy, reverse
 
 from blog.models import Publications
@@ -29,3 +29,14 @@ class PublicationsUpdateView(UpdateView):
 
     def get_success_url(self):
         return reverse('blog:publications_detail', args=[self.kwargs.get('pk')])
+
+
+class PublicationsCreateView(CreateView):
+    model = Publications
+    fields = ('title', 'description', 'image', 'publication', 'views')
+    success_url = reverse_lazy('blog:publications_list')
+
+
+class PublicationsDeleteView(DeleteView):
+    model = Publications
+    success_url = reverse_lazy('blog:publications_list')
