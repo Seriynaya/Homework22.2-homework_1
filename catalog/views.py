@@ -1,26 +1,39 @@
-from django.shortcuts import render, get_object_or_404
 from catalog.models import Product
-
-
-def product_list(request):
-    products = Product.objects.all()
-    context = {'products': products}
-    return render(request, 'product_list.html', context)
-
-
-def product_detail(request, pk):
-    product = get_object_or_404(Product, pk=pk)
-    context = {'product': product}
-    return render(request, 'product_detail.html', context)
+from django.views.generic import ListView, DetailView, TemplateView, CreateView, UpdateView, DeleteView
+from .forms import ProductForm
+from django.urls import reverse_lazy
 
 
 
-def home_render(request):
-    return render(request, 'catalog/home.html')
+class ProductListView(ListView):
+    model = Product
 
 
-def contacts_render(request):
-    return render(request, 'catalog/contacts.html')
+class ProductDetailView(DetailView):
+    model = Product
+
+
+class HomeView(TemplateView):
+    template_name = 'catalog/home.html'
+
+
+class ContactsView(TemplateView):
+    template_name = 'catalog/contacts.html'
 
 
 
+class ProductCreateView(CreateView):
+    model = Product
+    form_class = ProductForm
+    success_url = reverse_lazy("catalog:product_list")
+
+
+class ProductUpdateView(UpdateView):
+    model = Product
+    form_class = ProductForm
+    success_url = reverse_lazy("catalog:product_list")
+
+
+class ProductDeleteView(DeleteView):
+    model = Product
+    success_url = reverse_lazy("catalog:product_list")
