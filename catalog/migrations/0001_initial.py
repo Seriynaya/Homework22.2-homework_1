@@ -31,7 +31,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(help_text='Введите наименование', max_length=150, verbose_name='наименование')),
                 ('description', models.TextField(help_text='Введите описание', max_length=250, verbose_name='описание')),
                 ('image', models.ImageField(blank=True, help_text='Загрузите изображение', null=True, upload_to='images', verbose_name='Изображение')),
-                ('price', models.CharField(blank=True, help_text='Введите цену', max_length=150, null=True, verbose_name='Цена')),
+                ('price', models.IntegerField(blank=True, help_text='Введите цену', null=True, verbose_name='Цена')),
                 ('created_at', models.DateField(blank=True, help_text='Введите дату создания', null=True, verbose_name='дата создания')),
                 ('updated_at', models.DateTimeField(auto_now=True, null=True, verbose_name='дата последнего изменения')),
                 ('category', models.ForeignKey(blank=True, help_text='Введите категорию', null=True, on_delete=django.db.models.deletion.CASCADE, to='catalog.category', verbose_name='категория')),
