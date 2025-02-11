@@ -48,3 +48,9 @@ class CategoryForm(ModelForm):
     class Meta:
         model = Category
         fields = ['name', 'description']
+
+
+class ProductModeratorForm(ModelForm):
+    class Meta:
+        model = Product
+        fields = ['status_publication']

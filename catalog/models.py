@@ -14,6 +14,7 @@ class Product(models.Model):
     updated_at = models.DateTimeField(auto_now=True, verbose_name='дата последнего изменения', blank=True, null=True)
 
     owner = models.ForeignKey(User, verbose_name="Владелец", on_delete=models.CASCADE, blank=True, null=True)
+    status_publication = models.BooleanField(default=False, verbose_name='Статус публикации')
 
     def __str__(self):
         return f'{self.name}'
@@ -21,6 +22,9 @@ class Product(models.Model):
     class Meta:
         verbose_name = 'товар'
         verbose_name_plural = 'товары'
+        permissions = [
+            ("can_unpublish_product", "Can unpublish product")
+        ]
 
 
 class Category(models.Model):
