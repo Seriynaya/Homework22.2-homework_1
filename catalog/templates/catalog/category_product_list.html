@@ -1,0 +1,23 @@
+{% extends 'catalog/home.html'%}
+{% block content %}
+<div class="container">
+    <div class="row text-center">
+        {% for category in categorys %}
+        <div class="col-3">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">{{ category.name }}</h4>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title pricing-card-title">$ {{ category.name }}</h1>
+                    <ul class="list-unstyled mt-3 mb-4 text-start m-3">
+                        <li>- {{ category.description|truncatechars:100 }}</li>
+                    </ul>
+                    <a type="button"  class="btn btn-lg btn-block btn-outline-primary" href="{% url 'catalog:product_detail' category.id %}">Посмотреть продукт</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    </div>
+{% endblock %}
